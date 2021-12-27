@@ -3,6 +3,9 @@
 # Screenkey v0.1
 # Screenkey is a tool that shows keystrokes on terminal
 
+# to find the id detail use the command below 
+# xev | awk -F'[ )]+' '/^KeyPress|^ButtonPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }
+
 # Date 2021-12-27
 # GNU bash, versão 5.0.17(1)-release (x86_64-pc-linux-gnu)
 # Dependencies: xinput
@@ -256,6 +259,7 @@ MOUSE_Wheel_Up='detail: 4'
 _Wheel_Up="Wheel Up"
 MOUSE_Wheel_Down='detail: 5'
 _Wheel_Down="Wheel Down"
+
 xinput test-xi2 --root | grep -A2 --line-buffered "EVENT type 2\|RawButtonRelease" | while read -r line;
 do
     if [[ $line == ${KEYBOARD_ESC} ]];then

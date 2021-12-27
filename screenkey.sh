@@ -13,12 +13,24 @@
 # X11 Layout: br
 # X11 Model: pc105
 
-# stty echo = visible text
-# tput cvvis = visible cursor
-
 # reverse the stream direction on terminal
 #	tput cup 0 0  
 #	tput ri	
+
+cat<<EOF 
+Screenkey 0.1
+-------------
+CTRL+C for exit
+EOF
+
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
+function ctrl_c() {
+echo "EXIT"
+stty echo
+tput cvvis
+}
 
 stty -echo # invisible text
 tput civis # invisible cursor 
@@ -243,8 +255,7 @@ MOUSE_Wheel_Up='detail: 4'
 _Wheel_Up="Wheel Up"
 MOUSE_Wheel_Down='detail: 5'
 _Wheel_Down="Wheel Down"
-
-xinput test-xi2 --root | grep -A2 --line-buffered "RawKeyRelease\|RawButtonRelease" | while read -r line;
+xinput test-xi2 --root | grep -A2 --line-buffered "EVENT type 2\|RawButtonRelease" | while read -r line;
 do
     if [[ $line == ${KEYBOARD_ESC} ]];then
 	echo "$INFO_1 $_ESC"

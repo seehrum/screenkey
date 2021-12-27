@@ -1,8 +1,9 @@
 #!/bin/bash
 
+# Screenkey v0.1
 # Screenkey is a tool that shows keystrokes on terminal
 
-# Date 2021-12-26
+# Date 2021-12-27
 # GNU bash, versão 5.0.17(1)-release (x86_64-pc-linux-gnu)
 # Dependencies: xinput
 

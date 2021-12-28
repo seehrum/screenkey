@@ -4,7 +4,7 @@
 # Screenkey is a tool that shows keystrokes on terminal
 
 # to find the id detail use the command below 
-# xev | awk -F'[ )]+' '/^KeyPress|^ButtonPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }
+# xev | awk -F'[ )]+' '/^KeyPress|^ButtonPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 
 # Date 2021-12-27
 # GNU bash, versão 5.0.17(1)-release (x86_64-pc-linux-gnu)

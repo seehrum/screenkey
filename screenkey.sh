@@ -22,7 +22,7 @@
 #	tput ri	
 
 cat<<EOF 
-Screenkey 0.1
+Screenkey v0.1
 -------------
 CTRL+C for exit
 EOF
